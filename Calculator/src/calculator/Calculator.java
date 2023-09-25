@@ -37,6 +37,8 @@ int operande1=sc.nextInt();
 System.out.println("\n Entrer une seconde valeur:");
 int operande2=sc.nextInt();
 int result=0;
+if (operateur>5)
+    System.out.println("Saisir un nombre entre 1 et 5");
 if (operateur==1)
   result=operande1+operande2;
 if (operateur==2)
@@ -47,7 +49,8 @@ if (operateur==4)
   result=operande1/operande2;
 if (operateur==5)
   result=operande1%operande2;
-if (1)
+if (operateur>5)
+    System.out.println("Saisir un nombre entre 1 et 5");
 
 System.out.println("Le resultat est "+result);
 

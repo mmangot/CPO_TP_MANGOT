@@ -5,6 +5,9 @@ TDA2
  */
 package tp3_heroic_fantasy_mangot;
 
+import Personnages.Magicien;
+import Personnages.Personnage;
+import Personnages.Guerrier;
 import Armes.Epee;
 import Armes.Baton;
 import Armes.Arme;
@@ -45,6 +48,26 @@ public class TP3_Heroic_Fantasy_MANGOT {
            System.out.println(TableauArmes.get(i));
            
     }
+        Magicien magicien1 = new Magicien ("Gandalf",65,"confirmé" );
+        Magicien magicien2 = new Magicien ("Garcimore",44,"novice" );   
+        
+        Guerrier guerrier1 = new Guerrier ( "Conan", 78, "a pied");
+        Guerrier guerrier2 = new Guerrier ("Lannister", 45, "a cheval");
+        
+        System.out.println(magicien1);
+        System.out.println(magicien2);
+        System.out.println(guerrier1);
+        System.out.println(guerrier2);
+        
+         ArrayList<Personnage> TableauPerso = new ArrayList<>();
+        TableauPerso.add(magicien1);
+        TableauPerso.add(magicien2);
+        TableauPerso.add(guerrier1);
+        TableauPerso.add(guerrier2);
+        
+        for (int i = 0; i < TableauPerso.size(); i++) {
+           System.out.println(TableauPerso.get(i));
+                }
 }}
         // TODO code application logic here
     

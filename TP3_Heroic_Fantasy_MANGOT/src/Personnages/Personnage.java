@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package tp3_heroic_fantasy_mangot;
+package Personnages;
 
 /**
  *
@@ -19,4 +19,6 @@ public abstract class Personnage {
       public String toString() {
         return "Nom de l'arme : " + nom + ", Niveau d'attaque : " + niveauVie;
     }
+      
+      
 }

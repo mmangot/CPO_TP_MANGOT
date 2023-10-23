@@ -10,7 +10,9 @@ package Armes;
  */
 public abstract class Arme {
     String nom ;
-    int niveauAttaque = 100 ;
+  
+
+    int niveauAttaque ;
     
     
     public Arme (String Nom, int NiveauAttaque){

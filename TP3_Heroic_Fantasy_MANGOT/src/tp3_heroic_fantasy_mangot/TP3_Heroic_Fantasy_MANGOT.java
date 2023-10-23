@@ -5,6 +5,9 @@ TDA2
  */
 package tp3_heroic_fantasy_mangot;
 
+import Armes.Epee;
+import Armes.Baton;
+import Armes.Arme;
 import java.util.ArrayList;
 
 /**
@@ -32,13 +35,17 @@ public class TP3_Heroic_Fantasy_MANGOT {
 
         System.out.println("\nInformations sur le deuxième bâton : " +baton2);
         
-         ArrayList<Arme> armes = new ArrayList<>();
-        armes.add(epee1);
-        armes.add(epee2);
-        armes.add(baton1);
-        armes.add(baton2);
+         ArrayList<Arme> TableauArmes = new ArrayList<>();
+        TableauArmes.add(epee1);
+        TableauArmes.add(epee2);
+        TableauArmes.add(baton1);
+        TableauArmes.add(baton2);
+        
+        for (int i = 0; i < TableauArmes.size(); i++) {
+           System.out.println(TableauArmes.get(i));
+           
     }
-}
+}}
         // TODO code application logic here
     
     

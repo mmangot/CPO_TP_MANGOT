@@ -8,17 +8,15 @@ package tp3_heroic_fantasy_mangot;
  *
  * @author manon
  */
-public abstract class Arme {
+public abstract class Personnage {
     String nom ;
-    int niveauAttaque = 100 ;
+    int niveauVie = 100 ;
     
-    
-    public Arme (String Nom, int NiveauAttaque){
+    public Personnage (String Nom, int NiveauVie){
         nom=Nom;
-        niveauAttaque=NiveauAttaque;
+        niveauVie=NiveauVie;
     }
       public String toString() {
-        return "Nom de l'arme : " + nom + ", Niveau d'attaque : " + niveauAttaque;
+        return "Nom de l'arme : " + nom + ", Niveau d'attaque : " + niveauVie;
     }
-    
 }

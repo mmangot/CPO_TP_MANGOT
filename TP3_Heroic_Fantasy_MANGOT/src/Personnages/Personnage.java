@@ -4,6 +4,9 @@
  */
 package Personnages;
 
+import Armes.Arme;
+import java.util.ArrayList;
+
 /**
  *
  * @author manon
@@ -20,5 +23,5 @@ public abstract class Personnage {
         return "Nom de l'arme : " + nom + ", Niveau d'attaque : " + niveauVie;
     }
       
-      
+      ArrayList<Arme> TableauArmes = new ArrayList<>();
 }

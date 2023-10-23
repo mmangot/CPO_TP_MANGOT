@@ -30,6 +30,6 @@ public class Guerrier extends Personnage {
         else cheval = false;
     }
     public String toString() {
-        return "Nom de l'arme : " + nom + ", Niveau d'attaque : " + niveauVie+"a cheval ? "+cheval;
+        return "Nom de l'arme : " + nom + ", Niveau vie : " + niveauVie+"a cheval ? "+cheval;
 }
 }

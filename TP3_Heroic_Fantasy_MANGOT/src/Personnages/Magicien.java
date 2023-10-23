@@ -29,6 +29,6 @@ public class Magicien extends Personnage{
         else confirme = false;
     }
     public String toString() {
-        return "Nom de l'arme : " + nom + ", Niveau d'attaque : " + niveauVie+" Confirme ? "+confirme;
+        return "Nom de l'arme : " + nom + ", Niveau vie : " + niveauVie+" Confirme ? "+confirme;
     
 }}

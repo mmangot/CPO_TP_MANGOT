@@ -7,34 +7,45 @@ package Personnages;
 import Armes.Arme;
 import java.util.ArrayList;
 
-/**
+        /**
  *
  * @author manon
  */
 public abstract class Personnage {
     String nom ;
-    int niveauVie = 100 ;
+    int niveauVie ;
+    Arme armeMain;
+    int nbPerso;
     
     public Personnage (String Nom, int NiveauVie){
         nom=Nom;
         niveauVie=NiveauVie;
+        nbPerso+=1;
+    }
+    public void finale(){
+        nbPerso=nbPerso-1;
     }
       public String toString() {
-        return "Nom de l'arme : " + nom + ", Niveau d'attaque : " + niveauVie;
+        return "Personnage : " + nom + ", Niveau d'attaque : " + niveauVie;
     }
       
-      ArrayList<Arme> TableauArmes = new ArrayList<>();
-      TableauArmes.add(epee1);
-      TableauArmes.add(epee2);
-      TableauArmes.add(baton1);
-      TableauArmes.add(baton2);
-   
-      public boolean AjoutArme (Arme armeAjoutee){
-          if (TableauArmes.size()<=5){
-              TableauArmes.add(armeAjoutee);
+      public void fatigue(){
+          niveauVie=niveauVie-10;
+      }
+      
+      public boolean estVivant (){
+          if (niveauVie>0){
+              System.out.println(nom+" en vie ");
               return true;
           }
-          else return false;
+          else {
+              System.out.println(nom+" mort ");
+              return false;
+          }
       }
+      public void estAttaquer (int pts){
+          niveauVie=niveauVie-pts;
+      }
+     
               
 }

@@ -63,9 +63,28 @@ public class Magicien extends Personnage{
             return nom+"equipe avec "+armeMain;
     }
         else{
-            return nom+" a pas l'arme";
+            return nom+" a pas l'arme"; 
+        }}
+        
+        public void attaquer (Personnage perso){
+            int pv=20;
+            if (armeMain instanceof Baton){
+                pv=20*((Baton)armeMain).age;
+                fatigue();
+            }
+            if (confirme==true){
+                pv=pv/2;
+            }
+            perso.estAttaquer(pv);
+            System.out.println(perso +"attaque par "+nom);
         }
-    public String toString() {
+        
+        public String toString() {
         return "Nom de l'arme : " + nom + ", Niveau vie : " + niveauVie+" Confirme ? "+confirme;
+        
+    public void finalize(){
+        nbMag=nbMag-1;
+    }
     
-}}
+    
+}

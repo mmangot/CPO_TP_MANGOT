@@ -24,4 +24,17 @@ public abstract class Personnage {
     }
       
       ArrayList<Arme> TableauArmes = new ArrayList<>();
+      TableauArmes.add(epee1);
+      TableauArmes.add(epee2);
+      TableauArmes.add(baton1);
+      TableauArmes.add(baton2);
+   
+      public boolean AjoutArme (Arme armeAjoutee){
+          if (TableauArmes.size()<=5){
+              TableauArmes.add(armeAjoutee);
+              return true;
+          }
+          else return false;
+      }
+              
 }

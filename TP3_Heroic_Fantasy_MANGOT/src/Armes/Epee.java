@@ -11,7 +11,7 @@ import Armes.Arme;
  * @author manon
  */
 public class Epee extends Arme {
-    int indiceFin ;
+   public int indiceFin ;
 
     public Epee(String nom, int niveauAttaque, int indiceFin) {
             super(nom, niveauAttaque);

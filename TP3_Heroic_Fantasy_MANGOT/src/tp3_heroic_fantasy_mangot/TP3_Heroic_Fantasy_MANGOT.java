@@ -48,26 +48,37 @@ public class TP3_Heroic_Fantasy_MANGOT {
            System.out.println(TableauArmes.get(i));
            
     }
-        Magicien magicien1 = new Magicien ("Gandalf",65,"confirmé" );
-        Magicien magicien2 = new Magicien ("Garcimore",44,"novice" );   
+        Magicien magicien1 = new Magicien ("Gandalf",65,true);
+        Magicien magicien2 = new Magicien ("Garcimore",44,false);   
         
-        Guerrier guerrier1 = new Guerrier ( "Conan", 78, "a pied");
-        Guerrier guerrier2 = new Guerrier ("Lannister", 45, "a cheval");
+        Guerrier guerrier1 = new Guerrier ( "Conan", 78, false);
+        Guerrier guerrier2 = new Guerrier ("Lannister", 45, true);
         
         System.out.println(magicien1);
         System.out.println(magicien2);
         System.out.println(guerrier1);
         System.out.println(guerrier2);
         
-         ArrayList<Personnage> TableauPerso = new ArrayList<>();
-        TableauPerso.add(magicien1);
-        TableauPerso.add(magicien2);
-        TableauPerso.add(guerrier1);
-        TableauPerso.add(guerrier2);
+        magicien1.ajouterArme(epee1);
+        magicien1.ajouterArme(baton1);
+        magicien1.equipeArme(baton1);
         
-        for (int i = 0; i < TableauPerso.size(); i++) {
-           System.out.println(TableauPerso.get(i));
-                }
+        guerrier1.ajouterArme(epee2);
+        guerrier1.ajouterArme(baton1);
+        guerrier1.equipeArme(epee2);
+        
+        guerrier1.attaquer(magicien1);
+        System.out.println(magicien1);
+        System.out.println(guerrier1);
+        
+        magicien1.attaquer(guerrier1);
+        System.out.println(guerrier1);
+        System.out.println(magicien1);
+        
+        guerrier1.estVivant();
+        magicien1.estVivant();
+        
+       
 }}
         // TODO code application logic here
     

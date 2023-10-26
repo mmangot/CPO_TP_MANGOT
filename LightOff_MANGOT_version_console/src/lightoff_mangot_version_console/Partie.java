@@ -48,7 +48,7 @@ public class Partie {
         int colonne = scanner.nextInt();
 
         
-        grille.activerCellule();
+        
     }
 
     

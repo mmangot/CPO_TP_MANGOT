@@ -12,7 +12,7 @@ public class CelluleLumineuse {
    private boolean etat;
    
     /**
-     *
+     *initialise l'etat de la cellule a false (eteinte)
      * 
      */
     public CelluleLumineuse() {
@@ -20,9 +20,9 @@ public class CelluleLumineuse {
     }
     
     /**
-     *permet d'inverser l'Ã©tat actuel de la cellule
+     *permet d'inverser l'état actuel de la cellule
      */
-    public void activerCellule(boolean cellule){
+    public void activerCellule(){
       if (etat==true){
           etat=false;
       }
@@ -32,7 +32,7 @@ public class CelluleLumineuse {
   }
 
     /**
-     *permet d'Ã©teindre une cellule si celle ci est allumÃ©e
+     *permet d'éteindre une cellule si celle ci est allumée
      */
     public void eteindreCellule(){
               etat = false;
@@ -40,31 +40,31 @@ public class CelluleLumineuse {
   
 
     /**
-     *permet de vÃ©rifier si la cellule est Ã©teinte ou non
-     * @param cellule
-     * @return oui si elle est Ã©teinte, non si elle ne l'est pas
+     *permet vérifier si la cellule est éteinte ou non
+     * @return true si elle est éteinte, false si elle ne l'est pas
      */
-    public boolean estEteint(boolean cellule){
+    public boolean estEteint(){
       return etat == false;
       }
   
 
     /**
-     *renvoie l'Ã©tat actuel de la cellule
-     * @param cellule
-     * @return Ã©tat actuel (true=allumÃ©, false=eteint)
+     *renvoie l'état actuel de la cellule
+     * @return état actuel (true=allumée, false=eteint)
      */
-    public boolean getEtat(boolean cellule){
+    public boolean getEtat(){
         return etat;
     }
      
   
 
     /**
-     *
-     * @param cellule
-     * @return
+     *Cette méthode renvoie une chaîne de caractères "X" si l'état de l'objet est vrai (true),
+  ou "O" si l'état de l'objet est faux (false).
+     * 
+     * @return une chaine de caractère 
      */
+   @Override
     public String toString() {
        return etat ? "X" : "O"; 
     }

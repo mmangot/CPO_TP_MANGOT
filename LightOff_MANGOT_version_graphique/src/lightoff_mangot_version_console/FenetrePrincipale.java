@@ -37,7 +37,7 @@ public class FenetrePrincipale extends javax.swing.JFrame {
         PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
 
         
-        getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20,nbColonnes*40, nbLignes*40));
+        getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80,nbColonnes*40, nbLignes*40));
 this.pack();
 this.revalidate();
 
@@ -45,7 +45,7 @@ this.revalidate();
 
 PanneauBoutonVerticaux1.setLayout(new GridLayout(nbLignes, 1));
  getContentPane().add(PanneauBoutonVerticaux1, new
-org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1 * 40, nbLignes * 40));
+org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 1 * 40, nbLignes * 40));
  this.pack();
  this.revalidate();
        // création du panneau de boutons verticaux (pour les lignes)
@@ -53,8 +53,10 @@ org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1 * 40, nbLignes * 40));
  JButton bouton_ligne = new JButton();
  ActionListener ecouteurClick = new ActionListener() {
  final int j = i;
+ 
+ 
  @Override
- public void actionPerformed(ActionEvent e) {
+  public void actionPerformed(ActionEvent e) {
  grille.activerLigneDeCellules(j);
 repaint();
  }
@@ -67,22 +69,24 @@ repaint();
  
  PanneauBoutonHorizontaux.setLayout(new GridLayout(1, nbColonnes));
  getContentPane().add(PanneauBoutonHorizontaux, new
-org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, nbColonnes * 40, 1 * 40));
+org.netbeans.lib.awtextra.AbsoluteConstraints(108, 20, nbColonnes * 40, 1 * 40));
  this.pack();
  this.revalidate();
        // création du panneau de boutons verticaux (pour les lignes)
  for ( a = 0; a < nbColonnes; a++) {
- JButton bouton_ligne = new JButton();
+ JButton bouton_colonne = new JButton();
  ActionListener ecouteurClick = new ActionListener() {
  final int b = a;
+ 
+ 
  @Override
  public void actionPerformed(ActionEvent e) {
- grille.activerLigneDeCellules(b);
+ grille.activerColonneDeCellules(b);
 repaint();
  }
  };
- bouton_ligne.addActionListener(ecouteurClick);
- PanneauBoutonHorizontaux.add(bouton_ligne);
+ bouton_colonne.addActionListener(ecouteurClick);
+ PanneauBoutonHorizontaux.add(bouton_colonne);
 
  }
         for (int i = 0; i < nbLignes; i++) {
@@ -108,6 +112,8 @@ repaint();
         PanneauGrille = new javax.swing.JPanel();
         PanneauBoutonVerticaux1 = new javax.swing.JPanel();
         PanneauBoutonHorizontaux = new javax.swing.JPanel();
+        btnDiagoD = new javax.swing.JButton();
+        btnDiagoM = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -157,8 +163,36 @@ repaint();
 
         getContentPane().add(PanneauBoutonHorizontaux, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 360, 60));
 
+        btnDiagoD.setText("jButton1");
+        btnDiagoD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDiagoDActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnDiagoD, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 40, 50));
+
+        btnDiagoM.setText("jButton1");
+        btnDiagoM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDiagoMActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnDiagoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, 40, 50));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnDiagoDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiagoDActionPerformed
+  this.grille.activerDiagonaleDescendante();
+ repaint(); 
+ getContentPane().add(btnDiagoD, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 40, 50));// TODO add your handling code here:
+    }//GEN-LAST:event_btnDiagoDActionPerformed
+
+    private void btnDiagoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiagoMActionPerformed
+this.grille.activerDiagonaleMontante();
+ repaint();
+  getContentPane().add(btnDiagoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 40, 50));// TODO add your handling code here:
+    }//GEN-LAST:event_btnDiagoMActionPerformed
 
     /**
      * @param args the command line arguments
@@ -199,5 +233,7 @@ repaint();
     private javax.swing.JPanel PanneauBoutonHorizontaux;
     private javax.swing.JPanel PanneauBoutonVerticaux1;
     private javax.swing.JPanel PanneauGrille;
+    private javax.swing.JButton btnDiagoD;
+    private javax.swing.JButton btnDiagoM;
     // End of variables declaration//GEN-END:variables
 }

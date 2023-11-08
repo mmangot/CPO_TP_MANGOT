@@ -16,7 +16,7 @@ public class LightOff_MANGOT_version_console {
      */
     public static void main(String[] args) {
        Partie partie1= new Partie();
-       partie1.initialiserPartie(4);
+       partie1.initialiserPartie();
         partie1.lancerPartie();
        
     }

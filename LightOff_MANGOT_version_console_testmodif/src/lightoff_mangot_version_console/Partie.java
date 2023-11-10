@@ -23,7 +23,7 @@ public class Partie {
         nbCoups = 0;
     }
 
-    public void lancerPartieS() {
+    public void lancerPartie() {
 
         Scanner scanner = new Scanner(System.in);
 

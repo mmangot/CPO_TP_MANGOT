@@ -14,11 +14,11 @@ import javax.swing.JButton;
  * @author manon
  */
 public class FenetrePrincipale extends javax.swing.JFrame {
-
+int nbCouups=0;
+GrilleDeJeu grille;
     /**
      * Creates new form FenetrePrincipale
-     */ GrilleDeJeu grille;
-        int nbCoups;
+     */ 
         int i ;
         int a;
         public void initialiserPartie() {
@@ -26,11 +26,13 @@ public class FenetrePrincipale extends javax.swing.JFrame {
  grille.melangerMatriceAleatoirement(10);
  }
 
-    public FenetrePrincipale() {
+    public FenetrePrincipale(int nbCoups, int nbLigne) {
         initComponents();
         
-         int nbLignes = 5;
-        int nbColonnes = 5;
+         int nbLignes = nbLigne;
+        int nbColonnes = nbLigne;
+        int nbCoup = nbCoups;
+        jLabel2.setText(""+(nbCoup-nbCouups)+"");
         
         this.grille = new GrilleDeJeu(nbLignes, nbColonnes);
         
@@ -58,8 +60,24 @@ org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 1 * 40, nbLignes * 40));
  @Override
   public void actionPerformed(ActionEvent e) {
  grille.activerLigneDeCellules(j);
+ nbCouups++;
+ jLabel2.setText(""+(nbCoup-nbCouups)+"");
+ if (nbCouups==nbCoups){
+             FenetreDefaite f = new FenetreDefaite();
+        f.setVisible(true);
+        this.dispose();
+        }
+ if (grille.cellulesToutesEteintes()==true){
+            FenetreGagant f = new FenetreGagant();
+        f.setVisible(true);
+        this.dispose();
+        }
 repaint();
  }
+
+     private void dispose() {
+         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+     }
  };
  bouton_ligne.addActionListener(ecouteurClick);
  PanneauBoutonVerticaux1.add(bouton_ligne);
@@ -82,8 +100,24 @@ org.netbeans.lib.awtextra.AbsoluteConstraints(108, 20, nbColonnes * 40, 1 * 40))
  @Override
  public void actionPerformed(ActionEvent e) {
  grille.activerColonneDeCellules(b);
+  nbCouups++;
+  jLabel2.setText(""+(nbCoup-nbCouups)+"");
+  if (nbCouups==nbCoups){
+             FenetreDefaite f = new FenetreDefaite();
+        f.setVisible(true);
+        this.dispose();
+        }
+  if (grille.cellulesToutesEteintes()==true){
+            FenetreGagant f = new FenetreGagant();
+        f.setVisible(true);
+        this.dispose();
+        }
 repaint();
  }
+
+     private void dispose() {
+         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+     }
  };
  bouton_colonne.addActionListener(ecouteurClick);
  PanneauBoutonHorizontaux.add(bouton_colonne);
@@ -96,7 +130,54 @@ repaint();
             }
         }
         
+btnDiagoM.addActionListener(new ActionListener() {
+    @Override
+    public void actionPerformed(ActionEvent evt){
+        btnDiagoMActionPerformed(evt);
+        nbCouups++;
+        grille.activerDiagonaleMontante();
+        jLabel2.setText(""+(nbCoup-nbCouups)+"");
+        if (nbCouups==nbCoups){
+             FenetreDefaite f = new FenetreDefaite();
+        f.setVisible(true);
+        this.dispose();
+        }
+        if (grille.cellulesToutesEteintes()==true){
+            FenetreGagant f = new FenetreGagant();
+        f.setVisible(true);
+        this.dispose();
+        }
+    }
 
+            private void dispose() {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        });
+ btnDiagoD.addActionListener(new ActionListener() {
+    @Override
+    public void actionPerformed(ActionEvent evt){
+        btnDiagoDActionPerformed(evt);
+        nbCouups++;
+        grille.activerDiagonaleDescendante();
+        jLabel2.setText(""+(nbCoup-nbCouups)+"");
+        if (nbCouups==nbCoups){
+             FenetreDefaite f = new FenetreDefaite();
+        f.setVisible(true);
+        this.dispose();
+        }  
+        if (grille.cellulesToutesEteintes()==true){
+            FenetreGagant f = new FenetreGagant();
+        f.setVisible(true);
+        this.dispose();
+        }
+    }
+
+            private void dispose() {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        });
+
+ 
         initialiserPartie();
     }
 
@@ -114,8 +195,11 @@ repaint();
         PanneauBoutonHorizontaux = new javax.swing.JPanel();
         btnDiagoD = new javax.swing.JButton();
         btnDiagoM = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(600, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PanneauGrille.setBackground(new java.awt.Color(0, 153, 153));
@@ -177,7 +261,14 @@ repaint();
                 btnDiagoMActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDiagoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, 40, 50));
+        getContentPane().add(btnDiagoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 40, 50));
+
+        jLabel1.setText("Nombre coups restants :");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, -1, -1));
+
+        jLabel2.setText("jLabel2");
+        jLabel2.setPreferredSize(new java.awt.Dimension(36, 27));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 160, 50, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -195,39 +286,64 @@ this.grille.activerDiagonaleMontante();
     }//GEN-LAST:event_btnDiagoMActionPerformed
 
     /**
+
      * @param args the command line arguments
+
      */
+
+    /*
+
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+
+       
+
         try {
+
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+
                 if ("Nimbus".equals(info.getName())) {
+
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
+
                     break;
+
                 }
+
             }
+
         } catch (ClassNotFoundException ex) {
+
             java.util.logging.Logger.getLogger(FenetrePrincipale.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
+
             java.util.logging.Logger.getLogger(FenetrePrincipale.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
+
             java.util.logging.Logger.getLogger(FenetrePrincipale.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+
             java.util.logging.Logger.getLogger(FenetrePrincipale.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         }
+
         //</editor-fold>
 
-        /* Create and display the form */
+ 
+
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
-                new FenetrePrincipale().setVisible(true);
+
+                new FenetrePrincipale(4).setVisible(true);
+
             }
+
         });
-    }
+
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanneauBoutonHorizontaux;
@@ -235,5 +351,7 @@ this.grille.activerDiagonaleMontante();
     private javax.swing.JPanel PanneauGrille;
     private javax.swing.JButton btnDiagoD;
     private javax.swing.JButton btnDiagoM;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

@@ -23,7 +23,7 @@ public class CelluleGraphique extends JButton{
  int w = this.getWidth();
  int h = this.getHeight();
  if (celluleLumineuseAssociee.estEteint() == true) {
- g.setColor(new Color (153,153,255));
+ g.setColor(new Color (0,102,102));
  } else {
  g.setColor(new Color(204,204,255));
  }

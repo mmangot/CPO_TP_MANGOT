@@ -52,7 +52,7 @@
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Bravo t&apos;as gagn&#xe9; bogoos"/>
+            <Property name="text" type="java.lang.String" value="Bravo t&apos;as gagn&#xe9; !&#xa;Essaie le niveau au dessus !"/>
           </Properties>
         </Component>
       </SubComponents>

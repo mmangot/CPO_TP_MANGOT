@@ -33,7 +33,7 @@ public class FenetreGagant extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("Bravo t'as gagné bogoos");
+        jTextArea1.setText("Bravo t'as gagné !\nEssaie le niveau au dessus !");
         jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
